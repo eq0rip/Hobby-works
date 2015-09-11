@@ -1,0 +1,286 @@
+<html>
+<head>
+<style type="text/css">
+	#log1 {
+		background:#3C9;
+		height:400px;
+		width:40%;
+		float:left;
+		border:inset;
+		
+		}
+	#log2 {
+		background:#3C9;
+		height:400px;
+		width:40%;
+		float:left;
+		border:inset;
+		}	
+</style>
+<script type="text/javascript">
+    function calculate()
+	{//calculate start
+	var answer="";
+	document.getElementById('log1').innerHTML="";
+	document.getElementById('log2').innerHTML="";
+	
+		boxValue= new Array(8);
+		testList=Array(1,1,1,1,1,1,1,1);//list to test
+		last=Array('A`B`C`','A`B`C','A`BC','A`BC`','AB`C`','AB`C','ABC','ABC`');
+		for(i=1;i<9;i++)
+			{
+				boxValue[i-1]=document.getElementById(i).value;
+				if(boxValue[i-1]==0){testList[i-1]=0;}//donot test if zero
+				
+			}
+		
+		
+		
+logg(1,"start")
+	
+function logg(x,y)
+			{
+	document.getElementById("log"+x).innerHTML+="=>"+y+"<br/>";
+	document.getElementById('log2').innerHTML+="=>"+"boxValue="+	boxValue+"<br/>"+"testList="+testList+"<br/>"+"=============	============="+"<br/>";
+				return;
+			}
+	testFor8();
+	final_test();
+	alert(answer);
+	function final_test()
+			{   
+				for(i=0;i<8;i++)
+				 {
+					if(testList[i]==1)
+						{
+							answer+='+'+last[i];
+						} 
+				 }
+				 return;
+			}		
+	function row(x,y){x+="";y+='';answer+='+'+com(x,y);return;}
+	function com(x,y)
+		    {    x+="";y+='';
+				 x=x+y;
+				 									numToChar={'01':'B`','03':'c`','12':'c','23':'b','10':'B`','	30':'c`','21':'c','32':'b'};
+				 return numToChar[x];	
+			}
+		function pair(x,y,z)
+		    {     x+='';
+				  z+='';
+				  y+='';
+			     if(x==0){answer+='+'+'A`'+com(y,z);}
+			     else    {answer+='+'+'A'+com(y,z);}
+			     return;
+		    }		
+		function testFor2()
+		    {
+				a=Array(boxValue[0],boxValue[1],boxValue[2],boxValue[3]);
+			    b=Array(boxValue[4],boxValue[5],boxValue[6],boxValue[7]);
+			    xxx=Array(a,b);
+			    
+			    for(i=0;i<2;i++)
+			     {
+					 for(j=0;j<4;j++)
+					   {
+						   if(testList[(4*i)+j]==0){continue;}
+						   
+						   if(j==0)
+						    {
+								if(xxx[i][j]==xxx[i][3]){testList[(4*i)]=0;testList[(4*i)+3]=0;logg(1,"'pair"+i+"0L"+"'");pair(i,0,3);}
+								if(xxx[i][j]==xxx[1-i][0]){testList[(4*i)]=0;testList[4*(1-i)]=0;logg(1,"'pair"+i+"0V'");answer+='+'+'B`C`';}
+								if(xxx[i][j]==xxx[i][1]){testList[(4*i)]=0;testList[(4*i)+1]=0;logg(1,"'pair"+i+"0R'");pair(i,0,1);}
+							}
+						   if(j==1 || j==2)
+						    {
+								if(xxx[i][j]==xxx[i][j-1]){testList[(4*i)+j]=0;testList[(4*i)+(j-1)]=0;logg(1,"'pair"+i+j+"L'");pair(i,j,j-1);}
+								if(xxx[i][j]==xxx[1-i][j]){
+										                    testList[(4*i)+j]=0;testList[(4*(1-i))+j]=0;logg(1,'pair'+i+j+"v");
+									                         if(j==1){answer+="+"+"B`C";}
+									                         else {answer+="+"+"BC";}          
+									                      }
+								if(xxx[i][j]==xxx[i][j+1]){testList[(4*i)+j]=0;testList[(4*i)+(j+1)]=0;logg(1,"'pair"+i+j+"R'");pair(i,j,j+1);}
+							}
+							
+						  if(j==3)
+						   {
+							   if(xxx[i][j]==xxx[1-i][j]){testList[(4*i)+j]=0;testList[(4*(1-i))+j]=0;logg(1,'pair'+i+j+"v");answer+="+"+"BC`";}
+						   }	
+						   	
+						   	
+					   }
+				 }
+				 return;
+			}	
+		function testFor4()
+			{//testfor4 start
+			
+				
+				 for(i=0;i<4;i++)//check for 4-box
+				 	{
+						if(testList[i]==0){continue;}
+						else
+						   { 
+						   	  if(i==3)
+							   {   
+								   if(boxValue[3]==1 && boxValue[0]==1 && boxValue[4]==1 && boxValue[7]==1)
+								   	{
+										testList[3]=0;
+										testList[0]=0;
+										testList[4]=0;
+										testList[7]=0;
+										logg(1,"row 03");
+										row(0,3);
+										
+										
+										
+									}   
+							   }
+							   
+							 else
+							   {
+								   if(boxValue[i]==1 && boxValue[i+1]==1 && boxValue[i+4]==1 && boxValue[i+5]==1)
+								    {
+										testList[i]=0;
+										testList[i+1]=0;
+										testList[i+4]=0;
+										testList[i+5]=0;
+										logg(1,"row"+i+(i+1));
+										row(i,(i+1));
+										
+											
+									}	
+							   }
+						   }
+				}
+				
+			  for(i=3;i>=0;i--)	
+				{
+				   if(testList[i]==0){continue;}
+				   else
+				     {
+						if(i==0)
+						 {
+							 if(boxValue[0]==1 && boxValue[3]==1 && boxValue[4]==1 && boxValue[7]==1)
+							   {
+								   testList[0]=0;
+								   testList[7]=0;
+								   testList[4]=0;
+								   testList[3]=0;
+								   logg(1,"row03");
+								   row(0,3);
+								   
+							   }
+							   
+						 }
+						else
+						 {
+							 if(boxValue[i]==1 && boxValue[i-1]==1 && boxValue[i+3]==1 && boxValue[i+4]==1)
+							 	{  
+									testList[i]=0;
+									testList[i-1]=0;
+									testList[i+3]=0;
+									testList[i+4]=0;
+									logg(1,"row"+i+(i-1));
+									row(i,(i-1));
+								}
+						 } 
+					 }
+				}
+				
+					
+				for(i=1;i<4;i++)//check if upper row has all 1
+					{
+						if(boxValue[i]==boxValue[i-1] && boxValue[i]==1)continue;
+						else break;
+						
+					}
+				if(i==4)
+				  {
+					 testList[0]=0;
+					 testList[1]=0;
+					 testList[2]=0;
+					 testList[3]=0;
+				     logg(1,"lower 4");
+				     answer+='A`';
+				  }
+				else logg(1,"lower not 4");
+				
+				for(i=5;i<8;i++)//check if lower row has all 1
+					{
+						if(boxValue[i]==boxValue[i-1] && boxValue[i]==1)continue;
+						else break;
+						
+					}
+				if(i==8)
+				  {
+					testList[4]=0;
+					testList[5]=0;
+					testList[6]=0;
+					testList[7]=0; 
+					logg(1,'upper 4');
+					answer+='A';
+				  }
+				else logg(1,'upper not 4');	
+				
+		sum=0;                              ///	to test	
+		for(element in testList)            /// for 
+		sum+=parseInt(testList[element]);   ///remaining 
+		testFor2();	/// testList
+		return;
+			}//testfor4 end
+		function testFor8()
+			{//testfor8 start
+				for(i=1;i<8;i++)
+					{
+						if(boxValue[i]==boxValue[i-1] && boxValue[i]==1)
+							{continue;}
+						else 
+							{break}
+					}
+				if(i==8)
+				{
+					testList=Array(0,0,0,0,0,0,0,0);
+					logg(1,"sab 8");
+					answer+='0';
+				}
+				else  {testFor4();}	
+			
+			return;}//testfor8 end
+	
+	}//calculate end
+	</script>
+    
+</head>
+<body>
+<div id="main">
+<table style="text-align:center">	
+<tr>
+<td> </td>
+<td>B`C`</td> 
+<td>B`C</td>
+<td>BC</td>
+<td>BC`</td>	
+</tr>
+<tr>
+	<td> A`</td>
+	<td><input maxlength="1" size="1" value="0"  type="text" id="1" onFocus="this.blur()" onClick="if(this.value==0){this.value=1;}else {this.value=0;}" /></td>
+	<td><input maxlength="1" size="1" value="0"  type="text" id="2" onFocus="this.blur()" onClick="if(this.value==0){this.value=1;}else {this.value=0;}"/></td>
+	<td><input maxlength="1" size="1" value="0"  type="text" id="3" onFocus="this.blur()" onClick="if(this.value==0){this.value=1;}else {this.value=0;}"/></td>
+	<td><input maxlength="1" size="1" value="0"  type="text" id="4" onFocus="this.blur()" onClick="if(this.value==0){this.value=1;}else {this.value=0;}"/></td>
+</tr>
+<tr>
+	<td> A </td>
+	<td><input maxlength="1" size="1" value="0"  type="text" id="5" onFocus="this.blur()" onClick="if(this.value==0){this.value=1;}else {this.value=0;}"/></td>
+	<td><input maxlength="1" size="1" value="0"  type="text" id="6" onFocus="this.blur()" onClick="if(this.value==0){this.value=1;}else {this.value=0;}"/></td>
+	<td><input maxlength="1" size="1" value="0"  type="text" id="7" onFocus="this.blur()" onClick="if(this.value==0){this.value=1;}else {this.value=0;}"/></td>
+	<td><input maxlength="1" size="1" value="0"  type="text" id="8" onFocus="this.blur()" onClick="if(this.value==0){this.value=1;}else {this.value=0;}"/></td>
+</tr>
+</table>
+<button type="button" onClick="calculate()">Calculate</button>
+
+</div>
+<div id="log1">LOG</div>
+<div id="log2">fog</div>
+</body>
+
