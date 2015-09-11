@@ -1,0 +1,196 @@
+
+    body {
+		margin:0;
+		padding:0;
+         background:url(images/kalo-type.png);
+         
+         }
+    li+li { border-left: 2px groove #000;
+         border-radius:3px; 
+          }
+    /*div {
+	//box-shadow:0px 0px 1px #00F;
+	border:0.01px solid red;
+	} */         
+          
+    
+	#top {
+		
+	    width:1200px;
+		height:120px;
+		margin:0 auto 0;
+		position:relative;
+		 }
+    #cover {
+        position:absolute;
+		z-index:1;
+		bottom:-35px;
+		width:700px;
+        height:auto;
+		float:left;
+        
+		
+		
+		}
+	#social {
+		 position:absolute;
+		 bottom:-14px;
+		 
+		 width:auto;
+		 height:auto;
+		 right:0px;
+		 margin:0;
+		 padding:0;
+		 
+		 
+			}	
+	#twitter {
+		width:60px;
+		height:60px;
+		display:block;
+		float:left;
+		//overflow:hidden;
+		background:url(images/60pxsocial.png);
+		background-position:0 0;
+		//display:inline-block;
+		
+		transition:all 1000ms ease;
+		transform-style:preserve-3d;
+		transform:perspective(1000);
+		}      
+	#twitter:hover {
+		background-position:0 -60px;
+		transform:rotate(270deg);
+	}
+	#facebook {
+		width:60px;
+		height:60px;
+		position:relative;
+		left:20px;
+		float:left;
+		//overflow:hidden;
+		background:url(images/60pxsocial.png);
+		background-position:120px 0;
+		//display:inline-block;
+		
+		transition:all 1000ms ease;
+		transform-style:preserve-3d;
+		transform:perspective(1000);
+		}      
+	#facebook:hover {
+		background-position:120px -60px;
+		transform:rotate(270deg);
+	}
+	#youtube {
+		width:60px;
+		height:60px;
+		position:relative;
+		float:left;
+		left:40px;
+		
+		
+		background:url(images/60pxsocial.png);
+		background-position:60px 0;
+		
+		
+		transition:all 1000ms ease;
+		transform-style:preserve-3d;
+		transform:perspective(1000);
+		}      
+	#youtube:hover {
+		background-position:60px -60px;
+		transform:rotate(270deg);
+	}	   
+	   
+    #main {
+        width:1200px;
+		height:700px;
+		margin:0 auto 0;
+		
+		
+		
+        
+        box-shadow: 0 0 10px #9ecaed;
+		
+          }
+    #head-strip {
+		
+		
+        width: 100%;
+		height:50px;
+		
+		//margin:0 auto 0;
+        //background-color:#bbb;
+        background:url(images/seto-linked-type.png);
+       
+        
+		}
+    
+    #head-strip ul li {
+       
+		list-style:none;
+        float:left;
+       margin:0;
+	   padding:0;
+	   
+        }
+     #head-strip li:first-child {
+	margin-left: 10px;   
+	 }
+    #head-strip ul li a {
+        text-decoration:none;
+        line-height: 100%;
+		display: block;
+		padding: 14px 15px;
+        font-size:2vw;
+        line-height: 100%;
+        color:#222;
+        font-weight:bold;
+		text-shadow:0px 1px 1px #fff;
+		
+		
+                        }
+                         
+    #head-strip ul li a.left:hover {
+          transform:rotate(-3deg);
+		  
+		  
+                       }
+   #head-strip ul li a.right:hover {
+          transform:rotate(-3deg);
+                        }
+						
+    
+	#Lcanvas {
+		width:71%;
+		height:100%;
+		clear:both;
+		float:left;
+		
+		margin-top:5px;
+		margin-left:5px;
+		margin-right:10px;
+		background:url(images/kalo-linked-type.png);
+		
+		}                    
+                        
+    #Rcanvas {
+		width:26%;
+		height:700px;
+		float:right;
+		margin-top:5px;
+		margin-left:5px;
+		margin-right:5px;
+		background:url(images/kalo-linked-type.png);
+		//background-color:#666;
+		}                    
+    	                    
+    
+
+   */
+  #footer {
+	 height:40px;
+	 width:1200px;
+	 margin:auto;
+	  
+	  } 

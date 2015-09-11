@@ -1,0 +1,79 @@
+body {
+	background:url(images/kalo-type.png);
+	 }
+div {
+box-shadow:0px 0px 15px #00F;}
+	 
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
+    display: block;}
+		         
+#container {
+	width:1024px;
+	height:1000px;
+	margin:0 auto;
+	}
+#head {
+    height:160px;
+	position:relative;
+	}
+#logo {
+     float:left;
+	 height:auto;
+	 width:auto;
+	 position:relative;
+	 bottom:-90px;
+	 left:-40px;
+	}
+#interact {
+	float:right;
+	height:160px;
+	width:200px;
+	}		
+#body-container {
+	height:600px;
+	margin:10px 0 10px;
+	background:url(images/seto-type.png);
+	}
+#content {
+	width:900px;
+	height:600px;
+	float:left;
+	}	
+#slider {
+    width:300px;
+	float:right;
+	height:300px;
+	}
+#head-strip ul li {
+        list-style:none;
+        float:left;
+        padding-left:2%;
+        padding-right:2%;
+        margin-top:10px;
+        }
+        
+                       
+    #head-strip ul li a {
+        text-decoration:none;
+        font-size:2vw;
+        color:#222;
+        font-weight:600;
+        background-position: 0 0;
+        transform: perspective(1000);
+        text-shadow: 2px 2px 3px #ddd;
+        transform-style: preserve-3d;
+        display:block; 
+        transition: all 400ms cubic-bezier(0,0,0,0) 0ms;
+        }
+                         
+    #head-strip ul li a.left:hover {
+         text-shadow:0px -1px    1px #fff;
+         background-position: 0 20px;
+         transform: rotate(-20deg);
+         }
+    #head-strip ul li a.right:hover {
+          text-shadow:0px -1px    1px #fff;
+          background-position: 0 20px;
+          transform: rotate(20deg);
+          }
+    	

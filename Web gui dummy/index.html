@@ -1,0 +1,85 @@
+<html>
+ <head>
+   <script type="text/javascript">
+   function change(x,y)
+                  {
+                      if(y==1){
+                      body=document.getElementsByTagName('body')[0];
+                      body.style.backgroundImage="url(images/"+x+".png"+")";
+                              }
+                              
+                      else{
+                      body=document.getElementById('Lcanvas');
+                      body.style.backgroundImage="url(images/"+x+".png"+")";
+					  //body.style.background="#111";
+					  body=document.getElementById('Rcanvas');
+                      body.style.backgroundImage="url(images/"+x+".png"+")";
+                              }  
+                  }
+              
+                  
+                  
+   </script>
+   
+ 
+ <link href="interface.css" rel="stylesheet" type="text/css">
+ </head>
+ 
+<body>
+<div id="top">
+        <div id="cover">
+           <img id="cover-img" src="images/cover_crop.png" /> 
+        </div>
+        <div id="social">
+        
+        	
+              <div id="twitter">
+
+               </div>
+               <div id="facebook">
+
+               </div>
+               <div id="youtube">
+
+               </div>
+        </div>
+
+</div>
+ <div id="main">    
+     
+  <div id="head-strip">
+        <ul>
+           <li > <a class="right" href="#">Yeuta-thau</a></li>
+           <li> <a class="left" href="#">Arko_Thau</a></li>
+           <li> <a class="right" href="#">Hamro_Thau</a></li>
+           <li> <a class="left" href="#">Thau_timro</a></li>
+        </ul>
+        <input type="search" value="search"/>
+        <button type="button" onClick="document.open('new.html')">Go</button>
+    </div> 
+    
+    <div id="Lcanvas">
+                    <select id="1" onChange="change(document.getElementById('1').value,'1')" >
+                    <option>kalo-linked-type</option>
+                    <option>Seto-linked-type</option>
+                    <option>seto-cement-type</option>
+                    <option>seto-cotton-type</option>
+                    <option selected>kalo-type</option>
+                    <option>seto-type</option>
+                    </select>
+                    <select id="2" onChange="change(document.getElementById('2').value,'2')" >
+                    <option>kalo-linked-type</option>
+                    <option>Seto-linked-type</option>
+                    <option>seto-cement-type</option>
+                    <option>seto-cotton-type</option>
+                    <option>seto-type</option>
+                    <option selected>kalo-type</option>
+                    </select>     
+   </div>
+   <div id="Rcanvas">
+   kjjkkjkfghg
+   </div>
+
+</div>
+</body>
+</html>
